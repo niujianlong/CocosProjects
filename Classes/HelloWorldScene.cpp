@@ -112,7 +112,8 @@ void HelloWorld::Option(Ref* pSender, Widget::TouchEventType type)
 		log("Down !");
 		auto rootNode = CSLoader::createNode("MainScene.csb");
 
-		addChild(rootNode);
+		//addChild(rootNode);
+		Director::getInstance()->replaceScene(TransitionFade::create(0.5, (Scene*)rootNode, Color3B(0, 255, 255)));
 	}
 	break;
 
