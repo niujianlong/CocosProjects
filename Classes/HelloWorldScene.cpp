@@ -10,85 +10,85 @@ using namespace cocos2d::ui;
 
 Scene* HelloWorld::createScene()
 {
-    // 'scene' is an autorelease object
-    auto scene = Scene::create();
-    
-    // 'layer' is an autorelease object
-    auto layer = HelloWorld::create();
+	// 'scene' is an autorelease object
+	auto scene = Scene::create();
 
-    // add layer as a child to scene
-    scene->addChild(layer);
+	// 'layer' is an autorelease object
+	auto layer = HelloWorld::create();
 
-    // return the scene
-    return scene;
+	// add layer as a child to scene
+	scene->addChild(layer);
+
+	// return the scene
+	return scene;
 }
 
 // on "init" you need to initialize your instance
 bool HelloWorld::init()
 {
-    /**  you can create scene with following comment code instead of using csb file.
-    // 1. super init first
-    if ( !Layer::init() )
-    {
-        return false;
-    }
-    
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+	/**  you can create scene with following comment code instead of using csb file.
+	// 1. super init first
+	if ( !Layer::init() )
+	{
+		return false;
+	}
 
-    /////////////////////////////
-    // 2. add a menu item with "X" image, which is clicked to quit the program
-    //    you may modify it.
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-    // add a "close" icon to exit the progress. it's an autorelease object
-    auto closeItem = MenuItemImage::create(
-                                           "CloseNormal.png",
-                                           "CloseSelected.png",
-                                           CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
-    
+	/////////////////////////////
+	// 2. add a menu item with "X" image, which is clicked to quit the program
+	//    you may modify it.
+
+	// add a "close" icon to exit the progress. it's an autorelease object
+	auto closeItem = MenuItemImage::create(
+										   "CloseNormal.png",
+										   "CloseSelected.png",
+										   CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
+
 	closeItem->setPosition(Vec2(origin.x + visibleSize.width - closeItem->getContentSize().width/2 ,
-                                origin.y + closeItem->getContentSize().height/2));
+								origin.y + closeItem->getContentSize().height/2));
 
-    // create menu, it's an autorelease object
-    auto menu = Menu::create(closeItem, NULL);
-    menu->setPosition(Vec2::ZERO);
-    this->addChild(menu, 1);
+	// create menu, it's an autorelease object
+	auto menu = Menu::create(closeItem, NULL);
+	menu->setPosition(Vec2::ZERO);
+	this->addChild(menu, 1);
 
-    /////////////////////////////
-    // 3. add your codes below...
+	/////////////////////////////
+	// 3. add your codes below...
 
-    // add a label shows "Hello World"
-    // create and initialize a label
-    
-    auto label = Label::createWithTTF("Hello World", "fonts/Marker Felt.ttf", 24);
-    
-    // position the label on the center of the screen
-    label->setPosition(Vec2(origin.x + visibleSize.width/2,
-                            origin.y + visibleSize.height - label->getContentSize().height));
+	// add a label shows "Hello World"
+	// create and initialize a label
 
-    // add the label as a child to this layer
-    this->addChild(label, 1);
+	auto label = Label::createWithTTF("Hello World", "fonts/Marker Felt.ttf", 24);
 
-    // add "HelloWorld" splash screen"
-    auto sprite = Sprite::create("HelloWorld.png");
+	// position the label on the center of the screen
+	label->setPosition(Vec2(origin.x + visibleSize.width/2,
+							origin.y + visibleSize.height - label->getContentSize().height));
 
-    // position the sprite on the center of the screen
-    sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
+	// add the label as a child to this layer
+	this->addChild(label, 1);
 
-    // add the sprite as a child to this layer
-    this->addChild(sprite, 0);
-    **/
-    
-    //////////////////////////////
-    // 1. super init first
-    if ( !Layer::init() )
-    {
-        return false;
-    }
+	// add "HelloWorld" splash screen"
+	auto sprite = Sprite::create("HelloWorld.png");
+
+	// position the sprite on the center of the screen
+	sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
+
+	// add the sprite as a child to this layer
+	this->addChild(sprite, 0);
+	**/
+
+	//////////////////////////////
+	// 1. super init first
+	if (!Layer::init())
+	{
+		return false;
+	}
 	//map = TMXTiledMap::create("firstmap.tmx");
-    auto rootNode = CSLoader::createNode("FirstScene.csb");
+	auto rootNode = CSLoader::createNode("FirstScene.csb");
 
-    addChild(rootNode);
+	addChild(rootNode);
 
 	//通过按钮的名字获得按钮
 	Button* button1 = dynamic_cast<Button*>(rootNode->getChildByName("Button_1"));
@@ -97,7 +97,7 @@ bool HelloWorld::init()
 	button1->addTouchEventListener(CC_CALLBACK_2(HelloWorld::Option, this));
 	button2->addTouchEventListener(CC_CALLBACK_2(HelloWorld::Option2, this));
 
-    return true;
+	return true;
 }
 
 
@@ -159,27 +159,18 @@ void HelloWorld::Option2(Ref* pSender, Widget::TouchEventType type)
 		{
 			log("map file not found");
 		}
-		else
-		{
-			// position the sprite on the center of the screen
-			//sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
-
-			// add the sprite as a child to this layer
-			//this->addChild(sprite, 0);
-		}
-		Size size = Director::sharedDirector()->getWinSize();
 		player = Sprite::create("player.jpg");
 		//Player *player = Player::create();
 		//player->BindSprite(sprite);
 
-		map->addChild(player,1);
+		map->addChild(player, 1);
 		TMXObjectGroup * objGroup = map->getObjectGroup("player");
 		auto  SpawnPoint = objGroup->getObject("SpawnPoint");
 		float x = SpawnPoint["x"].asFloat();
 		float y = SpawnPoint["y"].asFloat();
-	
+
 		player->setPosition(Vec2(x, y));
-		setViewpointCenter(player->getPosition());
+		sceneScroll(player->getPosition());
 
 		//添加触控消息
 		auto listener = EventListenerTouchOneByOne::create();
@@ -217,16 +208,16 @@ void HelloWorld::Option2(Ref* pSender, Widget::TouchEventType type)
 void HelloWorld::setViewpointCenter(Point position)
 {
 	//获取当前屏幕的尺寸
-	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+	Size winSize = Director::getInstance()->getWinSize();
 
 	//如果精灵在屏幕中央的左边或者右边，x的值就是精灵当前的x值，否则x的值就是屏幕宽度的一半。
 	int x = MAX(position.x, winSize.width / 2);
 	//TMXTiledMap  *map = TMXTiledMap::create("firstmap.tmx");
 	//获取整个地图的尺寸
-	CCSize mapSize = map->getMapSize();
+	Size mapSize = map->getMapSize();
 
 	//获取每一个图块的宽高
-	CCSize tileSize = map->getTileSize();
+	Size tileSize = map->getTileSize();
 
 	CCLOG("%lf, %lf, %lf, %lf", mapSize.width, mapSize.height, tileSize.width, tileSize.height);
 
@@ -267,51 +258,49 @@ void HelloWorld::onTouchEnded(Touch *pTouch, Event *pEvent)
 
 	Point endPoint = convertToNodeSpace(point);
 
-	
 
-		//如果开始与结束点是同一个点，保证是点击而不是手指滑动
-		if (1)
+
+
+	//获取精灵原来的位置
+	Point playerPos = player->getPosition();
+
+	//得到用户触摸点与原来精灵点的位置的差距
+	Point disPos = endPoint - playerPos;
+
+	//判断偏移的距离是偏上下，还是偏左右。画图理解很容易
+	//偏左右
+	if (abs(disPos.x) >= abs(disPos.y))
+	{
+		if (disPos.x > 0)
 		{
-			//获取精灵原来的位置
-			Point playerPos = player->getPosition();
-
-			//得到用户触摸点与原来精灵点的位置的差距
-			Point disPos = endPoint - playerPos;
-
-			//判断偏移的距离是偏上下，还是偏左右。画图理解很容易
-			//偏左右
-			if (abs(disPos.x) >= abs(disPos.y))
-			{
-				if (disPos.x > 0)
-				{
-					//每次偏移一个图块的宽度。
-					playerPos.x += map->getTileSize().width;
-				}
-				else
-				{
-					playerPos.x -= map->getTileSize().width;
-				}
-			}
-			else //偏上下
-			{
-				if (disPos.y > 0)
-				{
-					//每次偏移一个图块的高度
-					playerPos.y += map->getTileSize().height;
-				}
-				else
-				{
-					playerPos.y -= map->getTileSize().height;
-				}
-			}
-			player->setPosition(playerPos);
-
-			//地图随精灵移动
-			//setViewpointCenter(player->getPosition());
-			//setPosition(player->getPosition());
-			sceneScroll(player->getPosition());
+			//每次偏移一个图块的宽度。
+			playerPos.x += map->getTileSize().width;
 		}
-	
+		else
+		{
+			playerPos.x -= map->getTileSize().width;
+		}
+	}
+	else //偏上下
+	{
+		if (disPos.y > 0)
+		{
+			//每次偏移一个图块的高度
+			playerPos.y += map->getTileSize().height;
+		}
+		else
+		{
+			playerPos.y -= map->getTileSize().height;
+		}
+	}
+	player->setPosition(playerPos);
+
+	//地图随精灵移动
+	//setViewpointCenter(player->getPosition());
+	//setPosition(player->getPosition());
+	sceneScroll(player->getPosition());
+
+
 
 }
 
@@ -319,15 +308,17 @@ void HelloWorld::sceneScroll(Point position)
 {
 	//获取屏幕尺寸   
 	Size screenSize = Director::getInstance()->getWinSize();
-	//计算Tilemap的宽高，单位是像素   
-	Size mapSizeInPixel = Size(100 * 32, 100 * 32); //Size(MapLayer::getInstance()->getTileMap()->getMapSize().width*MapLayer::getInstance()->getTileMap()->getTileSize().width,
+	//计算Tilemap的宽高，单位是像素
+	Size mapSize = map->getMapSize();
+	Size tileSize = map->getTileSize();
+	Size mapSizeInPixel = Size(mapSize.width * tileSize.width, mapSize.height * tileSize.height); //Size(MapLayer::getInstance()->getTileMap()->getMapSize().width*MapLayer::getInstance()->getTileMap()->getTileSize().width,
 		//MapLayer::getInstance()->getTileMap()->getMapSize().height*MapLayer::getInstance()->getTileMap()->getTileSize().height);
 	//取英雄当前x坐标和屏幕中点x的最大值，如果英雄的x值较大，则会滚动   
 	float x = MAX(position.x, screenSize.width / 2.0f);
 	float y = MAX(position.y, screenSize.height / 2.0f);
-	//舞台范围取屏幕范围,加外扩1tile,这里是128像素.
-	float w = screenSize.width + 128;
-	float h = screenSize.height + 128;
+	//舞台范围取屏幕范围,加外扩1tile,这里是像素.
+	float w = screenSize.width + tileSize.width;
+	float h = screenSize.height + tileSize.height;
 
 	//地图总宽度大于屏幕宽度的时候才有可能滚动   
 	if (mapSizeInPixel.width > screenSize.width)
@@ -358,6 +349,6 @@ void HelloWorld::sceneScroll(Point position)
 	//将场景移动到相应位置   
 	this->setPosition(scrollPosition);
 	//设置舞台范围，方便对进入舞台内的生物进行更新
-	Rect veiwpoint = Rect(-scrollPosition.x, -scrollPosition.y, -scrollPosition.x + w, -scrollPosition.y + h);
+	//Rect veiwpoint = Rect(-scrollPosition.x, -scrollPosition.y, -scrollPosition.x + w, -scrollPosition.y + h);
 	//UnitManager::getInstance()->setStageView(veiwpoint);
 }
