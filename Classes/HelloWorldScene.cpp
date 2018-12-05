@@ -85,7 +85,7 @@ bool HelloWorld::init()
     {
         return false;
     }
-    
+	//map = TMXTiledMap::create("firstmap.tmx");
     auto rootNode = CSLoader::createNode("FirstScene.csb");
 
     addChild(rootNode);
@@ -152,7 +152,7 @@ void HelloWorld::Option2(Ref* pSender, Widget::TouchEventType type)
 	case Widget::TouchEventType::BEGAN:
 	{
 		log("Down !");
-		TMXTiledMap* map = TMXTiledMap::create("firstmap.tmx");
+		map = TMXTiledMap::create("firstmap.tmx");
 		addChild(map);
 		//Director::getInstance()->replaceScene(TransitionFade::create(0.5, (Scene*)map, Color3B(0, 255, 255)));
 		if (map == nullptr)
@@ -168,17 +168,24 @@ void HelloWorld::Option2(Ref* pSender, Widget::TouchEventType type)
 			//this->addChild(sprite, 0);
 		}
 		Size size = Director::sharedDirector()->getWinSize();
-		Sprite *sprite = Sprite::create("CloseSelected.png");
+		player = Sprite::create("player.jpg");
 		//Player *player = Player::create();
 		//player->BindSprite(sprite);
 
-		map->addChild(sprite);
+		map->addChild(player,1);
 		TMXObjectGroup * objGroup = map->getObjectGroup("player");
 		auto  SpawnPoint = objGroup->getObject("SpawnPoint");
 		float x = SpawnPoint["x"].asFloat();
 		float y = SpawnPoint["y"].asFloat();
 	
-		sprite->setPosition(Vec2(x, y));
+		player->setPosition(Vec2(x, y));
+		setViewpointCenter(player->getPosition());
+
+		//添加触控消息
+		auto listener = EventListenerTouchOneByOne::create();
+		listener->onTouchBegan = [&](Touch *touch, Event *unused_event)->bool {return true; };
+		listener->onTouchEnded = CC_CALLBACK_2(HelloWorld::onTouchEnded, this);
+		Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
 	}
 	break;
 
@@ -205,4 +212,104 @@ void HelloWorld::Option2(Ref* pSender, Widget::TouchEventType type)
 	default:
 		break;
 	}
+}
+
+void HelloWorld::setViewpointCenter(Point position)
+{
+	//获取当前屏幕的尺寸
+	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+
+	//如果精灵在屏幕中央的左边或者右边，x的值就是精灵当前的x值，否则x的值就是屏幕宽度的一半。
+	int x = MAX(position.x, winSize.width / 2);
+	//TMXTiledMap  *map = TMXTiledMap::create("firstmap.tmx");
+	//获取整个地图的尺寸
+	CCSize mapSize = map->getMapSize();
+
+	//获取每一个图块的宽高
+	CCSize tileSize = map->getTileSize();
+
+	CCLOG("%lf, %lf, %lf, %lf", mapSize.width, mapSize.height, tileSize.width, tileSize.height);
+
+	//mapSize.width是地图的x轴方向上有多少个瓦片,当前是30
+	//mapSize.height是地图的y轴方向上有多少个瓦片，当前是10
+
+	//重新规划x的值。
+	x = MIN(x, mapSize.width * tileSize.width - winSize.width / 2);
+
+	//获取屏幕中心点的位置
+	Point centerPoint = Point(winSize.width / 2, winSize.height / 2);
+
+	//重新规划的位置
+	Point actualPoint = Point(x, winSize.height / 2);
+
+	//地图最终要移动到的位置
+	Point viewPoint = centerPoint - actualPoint;
+
+	//重新规划当前视图的位置。
+	this->setPosition(viewPoint);
+}
+
+bool HelloWorld::onTouchBegan(Touch *pTouch, Event *pEvent)
+{
+	//获取当前触摸到的点的位置
+	Point point = pTouch->getLocation();
+
+	//将openGL坐标系转化为结点做标系，可以定位到节点真实（距离地图最左边的位置而不是距离屏幕左下角的位置）的位置
+	beginPoint = convertToNodeSpace(point);
+
+	return true;
+}
+
+void HelloWorld::onTouchEnded(Touch *pTouch, Event *pEvent)
+{
+	//获取当前用户的点击结束点
+	Point point = pTouch->getLocation();
+
+	Point endPoint = convertToNodeSpace(point);
+
+	
+
+		//如果开始与结束点是同一个点，保证是点击而不是手指滑动
+		if (1)
+		{
+			//获取精灵原来的位置
+			Point playerPos = player->getPosition();
+
+			//得到用户触摸点与原来精灵点的位置的差距
+			Point disPos = endPoint - playerPos;
+
+			//判断偏移的距离是偏上下，还是偏左右。画图理解很容易
+			//偏左右
+			if (abs(disPos.x) >= abs(disPos.y))
+			{
+				if (disPos.x > 0)
+				{
+					//每次偏移一个图块的宽度。
+					playerPos.x += map->getTileSize().width;
+				}
+				else
+				{
+					playerPos.x -= map->getTileSize().width;
+				}
+			}
+			else //偏上下
+			{
+				if (disPos.y > 0)
+				{
+					//每次偏移一个图块的高度
+					playerPos.y += map->getTileSize().height;
+				}
+				else
+				{
+					playerPos.y -= map->getTileSize().height;
+				}
+			}
+			player->setPosition(playerPos);
+
+			//地图随精灵移动
+			setViewpointCenter(player->getPosition());
+			//setPosition(player->getPosition());
+		}
+	
+
 }
