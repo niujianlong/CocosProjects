@@ -112,8 +112,9 @@ void HelloWorld::Option(Ref* pSender, Widget::TouchEventType type)
 		log("Down !");
 		auto rootNode = CSLoader::createNode("MainScene.csb");
 
-		//addChild(rootNode);
-		Director::getInstance()->replaceScene(TransitionFade::create(0.5, (Scene*)rootNode, Color3B(0, 255, 255)));
+		addChild(rootNode);
+		//removeFromParent();
+		//Director::getInstance()->replaceScene(TransitionFade::create(0.5, (Scene*)rootNode, Color3B(0, 255, 255)));
 	}
 	break;
 
@@ -151,9 +152,33 @@ void HelloWorld::Option2(Ref* pSender, Widget::TouchEventType type)
 	case Widget::TouchEventType::BEGAN:
 	{
 		log("Down !");
-		//auto rootNode = CSLoader::createNode("MainScene.csb");
+		TMXTiledMap* map = TMXTiledMap::create("firstmap.tmx");
+		addChild(map);
+		//Director::getInstance()->replaceScene(TransitionFade::create(0.5, (Scene*)map, Color3B(0, 255, 255)));
+		if (map == nullptr)
+		{
+			log("map file not found");
+		}
+		else
+		{
+			// position the sprite on the center of the screen
+			//sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
 
-		//addChild(rootNode);
+			// add the sprite as a child to this layer
+			//this->addChild(sprite, 0);
+		}
+		Size size = Director::sharedDirector()->getWinSize();
+		Sprite *sprite = Sprite::create("CloseSelected.png");
+		//Player *player = Player::create();
+		//player->BindSprite(sprite);
+
+		map->addChild(sprite);
+		TMXObjectGroup * objGroup = map->getObjectGroup("player");
+		auto  SpawnPoint = objGroup->getObject("SpawnPoint");
+		float x = SpawnPoint["x"].asFloat();
+		float y = SpawnPoint["y"].asFloat();
+	
+		sprite->setPosition(Vec2(x, y));
 	}
 	break;
 
