@@ -26,6 +26,7 @@ public:
 	//touch 时间的回调函数
 	bool onTouchBegan(Touch *pTouch, Event *pEvent);
 	void onTouchEnded(Touch *pTouch, Event *pEvent);
+	void sceneScroll(Point position);
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
 private:

@@ -307,9 +307,57 @@ void HelloWorld::onTouchEnded(Touch *pTouch, Event *pEvent)
 			player->setPosition(playerPos);
 
 			//地图随精灵移动
-			setViewpointCenter(player->getPosition());
+			//setViewpointCenter(player->getPosition());
 			//setPosition(player->getPosition());
+			sceneScroll(player->getPosition());
 		}
 	
 
+}
+
+void HelloWorld::sceneScroll(Point position)
+{
+	//获取屏幕尺寸   
+	Size screenSize = Director::getInstance()->getWinSize();
+	//计算Tilemap的宽高，单位是像素   
+	Size mapSizeInPixel = Size(100 * 32, 100 * 32); //Size(MapLayer::getInstance()->getTileMap()->getMapSize().width*MapLayer::getInstance()->getTileMap()->getTileSize().width,
+		//MapLayer::getInstance()->getTileMap()->getMapSize().height*MapLayer::getInstance()->getTileMap()->getTileSize().height);
+	//取英雄当前x坐标和屏幕中点x的最大值，如果英雄的x值较大，则会滚动   
+	float x = MAX(position.x, screenSize.width / 2.0f);
+	float y = MAX(position.y, screenSize.height / 2.0f);
+	//舞台范围取屏幕范围,加外扩1tile,这里是128像素.
+	float w = screenSize.width + 128;
+	float h = screenSize.height + 128;
+
+	//地图总宽度大于屏幕宽度的时候才有可能滚动   
+	if (mapSizeInPixel.width > screenSize.width)
+	{
+		x = MIN(x, mapSizeInPixel.width - screenSize.width / 2.0f);
+	}
+	else
+	{
+		w = mapSizeInPixel.width;
+	}
+	if (mapSizeInPixel.height > screenSize.height)
+	{
+
+
+		y = MIN(y, mapSizeInPixel.height - screenSize.height / 2.0f);
+	}
+	else
+	{
+		h = mapSizeInPixel.height;
+	}
+	//英雄的实际位置   
+	Point heroPosition = Point(x, y);
+	//屏幕中点位置   
+	Point screenCenter = Point(screenSize.width / 2.0f, screenSize.height / 2.0f);
+	//计算英雄实际位置和中点位置的距离   
+	Point scrollPosition = screenCenter - heroPosition;
+
+	//将场景移动到相应位置   
+	this->setPosition(scrollPosition);
+	//设置舞台范围，方便对进入舞台内的生物进行更新
+	Rect veiwpoint = Rect(-scrollPosition.x, -scrollPosition.y, -scrollPosition.x + w, -scrollPosition.y + h);
+	//UnitManager::getInstance()->setStageView(veiwpoint);
 }
