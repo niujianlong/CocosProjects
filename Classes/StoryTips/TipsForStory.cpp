@@ -114,15 +114,15 @@ void TipsForStory::addStroys(int nowid,int zOrder)
 	CCString* thisnpctodo =  (CCString*)this_talkstroy_todo->objectAtIndex(nowflag);
 	//点击事件
 	CCLabelTTF* todo_label =  CCLabelTTF::create(FontChina::G2U(thisnpctodo->getCString()), "微软雅黑",10);
-	todo_label->setColor(ccYELLOW);
-	todo_label->setDirty(true);
+	todo_label->setColor(Color3B::YELLOW);
+	//todo_label->setDirty(true);
 	todo_label->setHorizontalAlignment(kCCTextAlignmentLeft);
 	todo_label->setDimensions(CCSizeMake(120,50));
 	todo_label->setPosition(ccp(365,15));
 
 	CCLabelTTF* todo_label2 =  CCLabelTTF::create(FontChina::G2U(thisnpctodo->getCString()), "微软雅黑",10);
-	todo_label2->setColor(ccBLACK);
-	todo_label2->setDirty(true);
+	todo_label2->setColor(Color3B::BLACK);
+	//todo_label2->setDirty(true);
 	todo_label2->setHorizontalAlignment(kCCTextAlignmentLeft);
 	todo_label2->setDimensions(CCSizeMake(120,50));
 	todo_label2->setPosition(ccp(365+1,15-1));

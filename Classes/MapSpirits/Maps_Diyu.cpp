@@ -99,7 +99,7 @@ void Maps_Diyu::makeroleAttack(float times)
 		CCPointArray* attck_pointlist = CCPointArray::create(0);
 		for (int i = 0; i < 15; i++)
 		{
-			CCRect* attck_rect = new Rect(this->getChildByTag(999)->getPosition().x-attck_reatR/2,this->getChildByTag(999)->getPosition().y-attck_reatR/2,attck_reatR,attck_reatR);
+			Rect* attck_rect = new Rect(this->getChildByTag(999)->getPosition().x-attck_reatR/2,this->getChildByTag(999)->getPosition().y-attck_reatR/2,attck_reatR,attck_reatR);
 			if(this->getChildByTag(100+i)!=NULL)
 			{
 				if(attck_rect->containsPoint(this->getChildByTag(100+i)->getPosition())==true)
@@ -211,7 +211,7 @@ void Maps_Diyu::attact_todo(int monsternum,int monsteridtags ,MainRoledata monst
 {
 	for (int i = 0; i < monsternum; i++)
 	{
-		CCRect* attck_rect = new CCRectMake(this->getChildByTag(monsteridtags+i)->getPosition().x-attck_reatR/2,this->getChildByTag(monsteridtags+i)->getPosition().y-attck_reatR/2,attck_reatR,attck_reatR);
+		Rect* attck_rect = new Rect(this->getChildByTag(monsteridtags+i)->getPosition().x-attck_reatR/2,this->getChildByTag(monsteridtags+i)->getPosition().y-attck_reatR/2,attck_reatR,attck_reatR);
 		if(attck_rect->containsPoint(playerpoint)==true)
 		{
 			//执行怪物攻击主角
@@ -226,7 +226,7 @@ void Maps_Diyu::attact_todo(int monsternum,int monsteridtags ,MainRoledata monst
 		}
 		else
 		{
-			CCRect* track_rect = new CCRectMake(this->getChildByTag(monsteridtags+i)->getPosition().x-reatR/2,this->getChildByTag(monsteridtags+i)->getPosition().y-reatR/2,reatR,reatR);
+			Rect* track_rect = new Rect(this->getChildByTag(monsteridtags+i)->getPosition().x-reatR/2,this->getChildByTag(monsteridtags+i)->getPosition().y-reatR/2,reatR,reatR);
 			if(track_rect->containsPoint(playerpoint)==true)
 			{
 				//执行移动，不停追杀主角
