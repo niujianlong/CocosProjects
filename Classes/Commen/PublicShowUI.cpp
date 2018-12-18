@@ -17,12 +17,15 @@ PublicShowUI::~PublicShowUI(void)
 void PublicShowUI::setGameText(CCLayer* layer,CCString* str,CCPoint cp,int size)
 {
 	label = CCLabelTTF::create(str->getCString(), "微软雅黑",size);
-	label->setColor(ccc3(255, 255, 255));
+	//label->setColor(ccc3(255, 255, 255));
+	label->setColor(Color3B::WHITE);
 	//label->setDirty(true);
 	label->setPosition(ccp(cp.x,cp.y));
 	layer->addChild(label,4);
 	labelback = CCLabelTTF::create(str->getCString(), "微软雅黑",size);
-	labelback->setColor(ccc3(0, 0, 0));
+	//labelback->setColor(ccc3(0, 0, 0));
+	label->setColor(Color3B::BLACK);
+
 	//labelback->setDirty(true);
 	labelback->setPosition(ccp(cp.x+1,cp.y-1));
 	layer->addChild(labelback,3);
@@ -40,12 +43,14 @@ void PublicShowUI::setGameTalkAbout(CCLayer* layer,CCPoint cp,int size,CCArray *
 
 			CCString* strthis = (CCString *)stringArray->objectAtIndex(i);
 			CCLabelTTF* newlabels =  CCLabelTTF::create(strthis->getCString(), "微软雅黑",size);
-			newlabels->setColor(ccc3(255,255,255));//白色
+			//newlabels->setColor(ccc3(255,255,255));//白色
+			newlabels->setColor(Color3B::WHITE);//白色
 			//newlabels->setDirty(true);
 			newlabels->setPosition(ccp(cp.x,cp.y+j*20));
 			p_ui_talkabout->addObject(newlabels);
 			CCLabelTTF* newlabels2 =  CCLabelTTF::create(strthis->getCString(), "微软雅黑",size);
-			newlabels2->setColor(ccc3(0,0,0));//ccBLACK
+			//newlabels2->setColor(ccc3(0,0,0));//ccBLACK
+			newlabels2->setColor(Color3B::BLACK);
 			//newlabels2->setDirty(true);
 			newlabels2->setPosition(ccp(cp.x+1,cp.y+1+j*20));
 			p_ui_talkabout_back->addObject(newlabels2);
