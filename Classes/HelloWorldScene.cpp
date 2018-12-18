@@ -219,7 +219,7 @@ void HelloWorld::setViewpointCenter(Point position)
 	//获取每一个图块的宽高
 	Size tileSize = map->getTileSize();
 
-	CCLOG("%lf, %lf, %lf, %lf", mapSize.width, mapSize.height, tileSize.width, tileSize.height);
+	log("%lf, %lf, %lf, %lf", mapSize.width, mapSize.height, tileSize.width, tileSize.height);
 
 	//mapSize.width是地图的x轴方向上有多少个瓦片,当前是30
 	//mapSize.height是地图的y轴方向上有多少个瓦片，当前是10
