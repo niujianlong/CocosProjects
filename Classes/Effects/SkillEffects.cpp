@@ -26,7 +26,7 @@ SkillEffects::SkillEffects(CCPoint basepoint,MainRoledata model,float actiontime
 	effects_main->setPosition(basepoint);
 	if(effects_main==NULL)
 	{
-		CCLog("图层路径有误，请检查路径");
+		log("图层路径有误，请检查路径");
 		return;
 	}
 

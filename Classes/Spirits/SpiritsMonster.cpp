@@ -10,7 +10,7 @@ SpiritsMonster::SpiritsMonster(MainRoledata roledata,int zOrder,int yinzihigth)
 	monster = SpiritsMonster::create(roledata.spiritUrl->getCString());
 	if(monster==NULL)
 	{
-		CCLog("图层路径有误，请检查路径");
+		log("图层路径有误，请检查路径");
 		return;
 	}
 	//设置怪物初始位置坐标（该坐标取决于当前画层）
@@ -23,13 +23,13 @@ SpiritsMonster::SpiritsMonster(MainRoledata roledata,int zOrder,int yinzihigth)
 	/**开始添加各部件**/
 	//添加名称
 	CCLabelTTF* label = CCLabelTTF::create(roledata.spiritname->getCString(), "微软雅黑",12);
-	label->setColor(ccWHITE);
-	label->setDirty(true);
+	label->setColor(Color3B::WHITE);
+	//label->setDirty(true);
 	label->setPosition(ccp(monster->getContentSize().width/2,monster->getContentSize().height+20));
 
 	CCLabelTTF* labelback = CCLabelTTF::create(roledata.spiritname->getCString(), "微软雅黑",12);
-	labelback->setColor(ccBLACK);
-	labelback->setDirty(true);
+	labelback->setColor(Color3B::BLACK);
+	//labelback->setDirty(true);
 	labelback->setPosition(ccp(label->getContentSize().width/2+1,label->getContentSize().height/2-1));
 	label->addChild(labelback,-1,1002);
 
@@ -46,7 +46,7 @@ SpiritsMonster::SpiritsMonster(MainRoledata roledata,int zOrder,int yinzihigth)
 	yinzi = CCSprite::create(p_yinzi);
 	if(yinzi==NULL)
 	{
-		CCLog("图层路径有误，请检查路径");
+		log("图层路径有误，请检查路径");
 		return;
 	}
 	yinzi->setPosition(ccp(monster->getContentSize().width/2,yinzihigth));
@@ -260,10 +260,10 @@ bool SpiritsMonster::isTouchInside(CCPoint thisPos,CCSprite* monster)
 	CCRect rc = rect(monster);
 	bool isTouched = rc.containsPoint(localPos);
 	if (isTouched == true) {
-		CCLog(FontChina::G2U("选择标识该怪物"));
+		log(FontChina::G2U("选择标识该怪物"));
 	}else
 	{
-		CCLog(FontChina::G2U("2222222222222222222！"));
+		log(FontChina::G2U("2222222222222222222！"));
 
 	}
 	return isTouched;

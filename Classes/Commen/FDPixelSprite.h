@@ -11,7 +11,7 @@
 #include "cocos2d.h"
 USING_NS_CC;
 
-class FDPixelSprite : public CCSprite, public CCTargetedTouchDelegate {
+class FDPixelSprite : public CCSprite {
 public:
     FDPixelSprite();
     virtual ~FDPixelSprite();
@@ -30,7 +30,7 @@ public:
     void ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent);
     void ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent);
 
-    CC_SYNTHESIZE(const char*, m_pName,Name);
+    //CC_SYNTHESIZE(const char*, m_pName,Name);
 };
 
 #endif /* defined(__PixelDemo__FDPixelSprite__) */
