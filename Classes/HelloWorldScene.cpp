@@ -1,6 +1,8 @@
 #include "HelloWorldScene.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
+#include "Spirits/SpiritsPlayer.h"
+#include "GameData/GetNPCData.h"
 
 USING_NS_CC;
 
@@ -142,7 +144,7 @@ void HelloWorld::Option(Ref* pSender, Widget::TouchEventType type)
 		break;
 	}
 }
-
+SpiritsPlayer* role_main = NULL;
 //按钮响应函数
 void HelloWorld::Option2(Ref* pSender, Widget::TouchEventType type)
 {
@@ -159,17 +161,27 @@ void HelloWorld::Option2(Ref* pSender, Widget::TouchEventType type)
 		{
 			log("map file not found");
 		}
+		
 		player = Sprite::create("player.jpg");
 		//Player *player = Player::create();
 		//player->BindSprite(sprite);
 
 		map->addChild(player, 1);
+	
 		TMXObjectGroup * objGroup = map->getObjectGroup("player");
 		auto  SpawnPoint = objGroup->getObject("SpawnPoint");
 		float x = SpawnPoint["x"].asFloat();
 		float y = SpawnPoint["y"].asFloat();
+		//加载猪脚
+		GetNPCData* basedatas = new GetNPCData();
+		basedatas->GetNPCchapter1();
+		basedatas->role_player.nowpoint = CCPointMake(x + 20, y + 20);
+		role_main = new SpiritsPlayer(basedatas->role_player, 1, false);
+		role_main->npc->retain();
+		map->addChild(role_main->npc, 2);
 
 		player->setPosition(Vec2(x, y));
+		//role_main->setPosition(Vec2(x + 10, y + 10));
 		sceneScroll(player->getPosition());
 
 		//添加触控消息
