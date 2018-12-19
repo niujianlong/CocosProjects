@@ -88,7 +88,7 @@ TestLayer1::TestLayer1(void)
 	npcdata11.role_player.nowpoint=CCPointMake(x/2,y/2);
 	npcdata11.role_player.dir=rigth_down;
 	//SpiritsPlayer taiyizhengren = SpiritsPlayer(npcdata11.role_player,0,false);
-	SpiritsPlayer taiyizhengren(npcdata11.role_player, 0, false);
+	SpiritsPlayer taiyizhengren(npcdata11.role_player, 0, false);//Sprite 的拷贝构造函数被delete了，所以上面的初始化方式不能编译通过
 	// menu
 	CCMenuItemImage *item1 = CCMenuItemImage::create(p_toscene, p_toscene0, this, menu_selector(TestLayer1::nextCallback));
 	item1->setPosition(ccp(origin.x + x - item1->getContentSize().width/2 ,
@@ -122,7 +122,7 @@ bool TestLayer1::onTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent
 	npcdata11.role_player.nowpoint= pTouch->getLocation();
 	npcdata11.role_player.dir=rigth_down;
 //	SpiritsPlayer taiyizhengren = SpiritsPlayer(npcdata11.role_player,0,false);
-	SpiritsPlayer taiyizhengren(npcdata11.role_player, 0, false);
+	SpiritsPlayer taiyizhengren(npcdata11.role_player, 0, false);//Sprite 的拷贝构造函数被delete了，所以上面的初始化方式不能编译通过
     return true;  
 }  
   
@@ -134,7 +134,7 @@ void TestLayer1::onTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent
 	npcdata11.role_player.nowpoint= pTouch->getLocation();
 	npcdata11.role_player.dir=rigth_down;
 	//SpiritsPlayer taiyizhengren = SpiritsPlayer(npcdata11.role_player,0,false);
-	SpiritsPlayer taiyizhengren(npcdata11.role_player, 0, false);
+	SpiritsPlayer taiyizhengren(npcdata11.role_player, 0, false);//Sprite 的拷贝构造函数被delete了，所以上面的初始化方式不能编译通过
     log("move");  
 }  
   
