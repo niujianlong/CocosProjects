@@ -31,21 +31,21 @@ FDPixelSprite* FDPixelSprite::create(CCString Url)
 
 void FDPixelSprite::setimg(CCString Url){
 	img= new CCImage();
-	img->initWithImageFileThreadSafe(CCFileUtils::sharedFileUtils()->fullPathForFilename(Url.getCString()).c_str());
+	img->initWithImageFile(CCFileUtils::sharedFileUtils()->fullPathForFilename(Url.getCString()).c_str());
 
 }
 
 void FDPixelSprite::onEnter()
 {
     CCSprite::onEnter();
-    CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
+    //CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
 }
 
 
 void FDPixelSprite::onExit()
 {
     CCSprite::onExit();
-    CCDirector::sharedDirector()->getTouchDispatcher()->removeDelegate(this);
+    //CCDirector::sharedDirector()->getTouchDispatcher()->removeDelegate(this);
 }
 
 
@@ -88,11 +88,11 @@ bool FDPixelSprite::ccTouchBegan(CCString thismapurl,cocos2d::CCTouch *pTouch, c
         c.b = (*pixel >> 16) & 0xff;
         c.a = (*pixel >> 24) & 0xff;
         if (c.a == 0) {
-			CCLog(FontChina::G2U("不可点击！"));
+			log(FontChina::G2U("不可点击！"));
             return false;
         }else
         {
-			CCLog(FontChina::G2U("可点击！"));
+			log(FontChina::G2U("可点击！"));
             return true;
         }
     }
@@ -110,7 +110,7 @@ void FDPixelSprite::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEv
 
 void FDPixelSprite::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
-    //CCLog("firedragonpzy:ccTouchEnded");
+    //log("firedragonpzy:ccTouchEnded");
 }
 
 

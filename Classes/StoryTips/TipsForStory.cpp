@@ -38,7 +38,7 @@ TipsForStory::TipsForStory(CCLayer* layer,CCPoint basepoint,CCString* imgurl,int
 
 	if(story_tip==NULL)
 	{
-		CCLog("图层路径有误，请检查路径");
+		log("图层路径有误，请检查路径");
 		return;
 	}
 

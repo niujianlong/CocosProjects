@@ -104,7 +104,7 @@ void Maps_Diyu::makeroleAttack(float times)
 			{
 				if(attck_rect->containsPoint(this->getChildByTag(100+i)->getPosition())==true)
 				{
-					CCLog(FontChina::G2U("在主角攻击范围"));
+					log(FontChina::G2U("在主角攻击范围"));
 					attck_pointlist->addControlPoint(this->getChildByTag(100+i)->getPosition());
 					nowtag=100+i;
 					break;
@@ -215,7 +215,7 @@ void Maps_Diyu::attact_todo(int monsternum,int monsteridtags ,MainRoledata monst
 		if(attck_rect->containsPoint(playerpoint)==true)
 		{
 			//执行怪物攻击主角
-			CCLog(FontChina::G2U("进入怪物可攻击范围"));
+			log(FontChina::G2U("进入怪物可攻击范围"));
 			//攻击时改变方向
 			SpiritsMonster::attackTomainRole_dir(ccp((int)playerpoint.x,(int)playerpoint.y),(CCSprite*)(this->getChildByTag(monsteridtags+i)),monster_model);
 			//释放技能动画
@@ -230,7 +230,7 @@ void Maps_Diyu::attact_todo(int monsternum,int monsteridtags ,MainRoledata monst
 			if(track_rect->containsPoint(playerpoint)==true)
 			{
 				//执行移动，不停追杀主角
-				CCLog(FontChina::G2U("进入怪物仇恨视野区域"));
+				log(FontChina::G2U("进入怪物仇恨视野区域"));
 				//防止靠近主角，保持一定距离！主要为了好看和处理被攻击效果。
 				int add_x = (int)(CCRANDOM_MINUS1_1()*25);
 				int add_y =(int)(CCRANDOM_MINUS1_1()*25);
