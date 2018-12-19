@@ -3,7 +3,7 @@
 string TDInvFileUtils::getFileByName(string pFileName){  
     //第一先获取文件的路径  
 	string path = CCFileUtils::sharedFileUtils()->getWritablePath() + pFileName;  
-    CCLOG("path = %s",path.c_str());  
+    log("path = %s",path.c_str());  
       
     //创建一个文件指针   
     FILE* file = fopen(path.c_str(), "r");  
@@ -15,11 +15,11 @@ string TDInvFileUtils::getFileByName(string pFileName){
         fseek(file, 0, SEEK_END);   //移到尾部  
         len = ftell(file);          //提取长度  
         rewind(file);               //回归原位  
-        CCLOG("count the file content len = %d",len);  
+        log("count the file content len = %d",len);  
         //分配buf空间  
         buf = (char*)malloc(sizeof(char) * len + 1);  
         if (!buf) {  
-            CCLOG("malloc space is not enough.");  
+            log("malloc space is not enough.");  
             return NULL;  
         }  
           
@@ -27,8 +27,8 @@ string TDInvFileUtils::getFileByName(string pFileName){
         //读取进的buf，单位大小，长度，文件指针  
         int rLen = fread(buf, sizeof(char), len, file);  
         buf[rLen] = '\0';  
-        CCLOG("has read Length = %d",rLen);  
-        CCLOG("has read content = %s",buf);  
+        log("has read Length = %d",rLen);  
+        log("has read content = %s",buf);  
           
         string result = buf;  
         fclose(file);  
@@ -36,7 +36,7 @@ string TDInvFileUtils::getFileByName(string pFileName){
         return result;  
     }  
     else  
-        CCLOG("open file error.");  
+        log("open file error.");  
       
     return NULL;  
 }  
@@ -44,7 +44,7 @@ string TDInvFileUtils::getFileByName(string pFileName){
 bool TDInvFileUtils::saveFile(char *pContent, string pFileName){  
     //第一获取储存的文件路径  
     string path = CCFileUtils::sharedFileUtils()->getWritablePath() + pFileName;  
-    CCLOG("wanna save file path = %s",path.c_str());  
+    log("wanna save file path = %s",path.c_str());  
       
     //创建一个文件指针  
     //路径、模式  
@@ -54,7 +54,7 @@ bool TDInvFileUtils::saveFile(char *pContent, string pFileName){
         fclose(file);  
     }  
     else  
-        CCLOG("save file error.");  
+        log("save file error.");  
       
     return false;  
 }  

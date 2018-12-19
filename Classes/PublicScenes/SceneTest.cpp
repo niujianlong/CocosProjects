@@ -124,7 +124,7 @@ void TestLayer1::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent
 	npcdata11.role_player.nowpoint= pTouch->getLocation();
 	npcdata11.role_player.dir=rigth_down;
 	SpiritsPlayer taiyizhengren = SpiritsPlayer(npcdata11.role_player,0,false);
-    CCLOG("move");  
+    log("move");  
 }  
   
 void TestLayer1::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  

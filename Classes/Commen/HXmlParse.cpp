@@ -20,7 +20,7 @@ bool HXmlParse::initHXmlParse(const char* xmlName)
     CCSAXParser parser;  
     if (false == parser.init("UTF-8") )
     {
-        CCLog("请使用utf-8格式!");
+        log("请使用utf-8格式!");
         return false;
     }
     parser.setDelegator(this);
@@ -40,7 +40,7 @@ void HXmlParse::startElement(void *ctx, const char *name, const char **atts)
     
     startXmlElement = (char*)name;
     if(!isJumpHeadData){//跳过数据头
-        CCLog("------跳过root name");
+        log("------跳过root name");
         isJumpHeadData=true;
         root_name=startXmlElement;
         return;
@@ -54,7 +54,7 @@ void HXmlParse::endElement(void *ctx, const char *name)
     
     endXmlElement = (char*)name;
     if(endXmlElement==root_name){//数据尾
-        CCLog("读取xml结束");
+        log("读取xml结束");
         isJumpHeadData=false;
         root_name="";
         return;

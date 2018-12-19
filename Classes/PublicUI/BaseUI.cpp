@@ -55,7 +55,7 @@ void BaseUI::isTouchInside(CCTouch *pTouch)
 	CCRect rc = rect_skill0();
 	bool isTouched = rc.containsPoint(localPoint);
 	if (isTouched == true) {
-		CCLog(FontChina::G2U("1111111111111111111！"));
+		log(FontChina::G2U("1111111111111111111！"));
 		if(touch_skill0_flag!=true)
 		{
 			touch_skill0_flag = true;

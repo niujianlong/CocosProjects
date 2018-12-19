@@ -6,7 +6,7 @@ SpiritMain::SpiritMain(CCLayer* layer,MainRoledata roledata,int zOrder)
 	CCSprite* npc = SpiritMain::create(roledata.spiritUrl->getCString());
 	if(npc==NULL)
 	{
-		CCLog("图层路径有误，请检查路径");
+		log("图层路径有误，请检查路径");
 		return;
 	}
 	//设置NPC初始位置坐标（该坐标取决于当前画层）
@@ -35,7 +35,7 @@ SpiritMain::SpiritMain(CCLayer* layer,MainRoledata roledata,int zOrder)
 	CCSprite* yinzi = CCSprite::create(p_yinzi);
 	if(yinzi==NULL)
 	{
-		CCLog("图层路径有误，请检查路径");
+		log("图层路径有误，请检查路径");
 		return;
 	}
 	yinzi->setZOrder(0);

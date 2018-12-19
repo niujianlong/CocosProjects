@@ -3,7 +3,7 @@
 
 GameDataXml::GameDataXml()
 {
-	CCLOG("*******************************华丽的分割线**********************************");
+	log("*******************************华丽的分割线**********************************");
 	CCUserDefault::sharedUserDefault()->setBoolForKey("isExisted",true);
 	CCUserDefault::sharedUserDefault()->setStringForKey("name","杨胜杰");
 	CCUserDefault::sharedUserDefault()->setStringForKey("age","18");
@@ -14,7 +14,7 @@ GameDataXml::GameDataXml()
 	string like = CCUserDefault::sharedUserDefault()->getStringForKey("like");*/
 
 	CCUserDefault::sharedUserDefault()->flush();
-	CCLog(CCUserDefault::sharedUserDefault()->getXMLFilePath().c_str());
+	log(CCUserDefault::sharedUserDefault()->getXMLFilePath().c_str());
 }
 
 const char* GameDataXml::ceshi(bool flag)
@@ -36,13 +36,13 @@ bool GameDataXml::ishavedata()
 	CCUserDefault *save=CCUserDefault::sharedUserDefault();  
 	if(!CCUserDefault::sharedUserDefault()->getBoolForKey("isExisted"))  
 	{  
-		CCLog("不存在");
+		log("不存在");
 		return false;
 	}
 	else
 	{
-		CCLog("文件存在,存在路径：");
-		CCLog(CCUserDefault::sharedUserDefault()->getXMLFilePath().c_str());
+		log("文件存在,存在路径：");
+		log(CCUserDefault::sharedUserDefault()->getXMLFilePath().c_str());
 		return true;
 	}
 }
