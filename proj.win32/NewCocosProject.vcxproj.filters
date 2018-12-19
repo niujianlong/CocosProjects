@@ -99,12 +99,6 @@
     <ClCompile Include="..\Classes\PublicScenes\ToScene.cpp">
       <Filter>src\PublicScenes</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Commen\GameDataXml.cpp">
-      <Filter>src\Comment</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Commen\HXmlParse.cpp">
-      <Filter>src\Comment</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Commen\PublicCommen.cpp">
       <Filter>src\Comment</Filter>
     </ClCompile>
@@ -199,12 +193,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\PublicScenes\ToScene.h">
       <Filter>src\PublicScenes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Commen\GameDataXml.h">
-      <Filter>src\Comment</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Commen\HXmlParse.h">
-      <Filter>src\Comment</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Commen\PublicCommen.h">
       <Filter>src\Comment</Filter>

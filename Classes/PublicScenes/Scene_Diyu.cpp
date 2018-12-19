@@ -19,19 +19,31 @@ Scene_Diyu::Scene_Diyu(void)
 	baseui = new BaseUI(this);
 
 	this->addChild(mainmap_Touch, 0);
+#if 0
 	setTouchEnabled(true);
+#endif // 0
+	auto listener = EventListenerTouchOneByOne::create();
+	listener->onTouchBegan = CC_CALLBACK_2(Scene_Diyu::onTouchBegan, this);
+	listener->onTouchMoved = CC_CALLBACK_2(Scene_Diyu::onTouchMoved, this);
+	listener->onTouchCancelled = CC_CALLBACK_2(Scene_Diyu::onTouchCancelled, this);
+	listener->onTouchEnded = CC_CALLBACK_2(Scene_Diyu::onTouchEnded, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+
 }
 
 
-void Scene_Diyu::registerWithTouchDispatcher()  
-{  
-    CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this,0,true);  
-}  
+#if 0
+void Scene_Diyu::registerWithTouchDispatcher()
+{
+	CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
+}
+#endif // 0
+
 
 
 bool Scene_Diyu::onTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
 {  
-	if(mainmap_Touch->onTouchBegan("map_diyu_naihe0.png",pTouch,pEvent)==true&&mainmap->touch_select(pTouch->getLocation())==false)
+	if(mainmap_Touch->onTouchBegan(pTouch,pEvent)==true&&mainmap->touch_select(pTouch->getLocation())==false)
 	{
 		mainmap->moveMapto(pTouch->getLocation(),mainmap_Touch);
 	}

@@ -14,7 +14,10 @@ public:
 	BaseUI* baseui;
 
 	void nextCallback(CCObject* pSender);
-    virtual void registerWithTouchDispatcher(void);
+#if COCOS2DX_VERSION_2X
+	virtual void registerWithTouchDispatcher(void);
+#endif // COCOS2DX_VERSION_2X
+
     virtual bool onTouchBegan(CCTouch *pTouch,CCEvent *pEvent);
     virtual void onTouchMoved(CCTouch *pTouch,CCEvent *pEvent);
     virtual void onTouchEnded(CCTouch *pTouch,CCEvent *pEvent);

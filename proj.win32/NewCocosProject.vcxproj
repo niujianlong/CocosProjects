@@ -152,8 +152,6 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\Commen\FDPixelSprite.cpp" />
     <ClCompile Include="..\Classes\Commen\FontChina.cpp" />
-    <ClCompile Include="..\Classes\Commen\GameDataXml.cpp" />
-    <ClCompile Include="..\Classes\Commen\HXmlParse.cpp" />
     <ClCompile Include="..\Classes\Commen\MakeNumbers.cpp" />
     <ClCompile Include="..\Classes\Commen\PublicCommen.cpp" />
     <ClCompile Include="..\Classes\Commen\PublicShowUI.cpp" />
@@ -184,8 +182,6 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\bianl.h" />
     <ClInclude Include="..\Classes\Commen\FDPixelSprite.h" />
     <ClInclude Include="..\Classes\Commen\FontChina.h" />
-    <ClInclude Include="..\Classes\Commen\GameDataXml.h" />
-    <ClInclude Include="..\Classes\Commen\HXmlParse.h" />
     <ClInclude Include="..\Classes\Commen\MakeNumbers.h" />
     <ClInclude Include="..\Classes\Commen\PublicCommen.h" />
     <ClInclude Include="..\Classes\Commen\PublicShowUI.h" />

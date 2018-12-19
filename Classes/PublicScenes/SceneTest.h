@@ -16,7 +16,10 @@ public:
     TestLayer1(void);
     ~TestLayer1(void);
     void nextCallback(CCObject* pSender);
-    virtual void registerWithTouchDispatcher(void);
+#if 0
+	virtual void registerWithTouchDispatcher(void);
+#endif // 0
+
     virtual bool onTouchBegan(CCTouch *pTouch,CCEvent *pEvent);
     virtual void onTouchMoved(CCTouch *pTouch,CCEvent *pEvent);
     virtual void onTouchEnded(CCTouch *pTouch,CCEvent *pEvent);

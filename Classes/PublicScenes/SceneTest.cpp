@@ -87,22 +87,31 @@ TestLayer1::TestLayer1(void)
 	npcdata11.GetNPCchapter1();
 	npcdata11.role_player.nowpoint=CCPointMake(x/2,y/2);
 	npcdata11.role_player.dir=rigth_down;
-	SpiritsPlayer taiyizhengren = SpiritsPlayer(npcdata11.role_player,0,false);
-
+	//SpiritsPlayer taiyizhengren = SpiritsPlayer(npcdata11.role_player,0,false);
+	SpiritsPlayer taiyizhengren(npcdata11.role_player, 0, false);
 	// menu
 	CCMenuItemImage *item1 = CCMenuItemImage::create(p_toscene, p_toscene0, this, menu_selector(TestLayer1::nextCallback));
 	item1->setPosition(ccp(origin.x + x - item1->getContentSize().width/2 ,
         y-origin.y - item1->getContentSize().height/2));
     CCMenu *menu = CCMenu::create(item1, NULL);
-	menu->setPosition(CCPointZero);
+	menu->setPosition(Point::ZERO);
 	this->addChild(menu, 0);
-	setTouchEnabled(true);
+	//setTouchEnabled(true);
+	auto listener = EventListenerTouchOneByOne::create();
+	listener->onTouchBegan = CC_CALLBACK_2(TestLayer1::onTouchBegan, this);
+	listener->onTouchMoved = CC_CALLBACK_2(TestLayer1::onTouchMoved, this);
+	listener->onTouchCancelled = CC_CALLBACK_2(TestLayer1::onTouchCancelled, this);
+	listener->onTouchEnded = CC_CALLBACK_2(TestLayer1::onTouchEnded, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 }
 
-void TestLayer1::registerWithTouchDispatcher()  
-{  
-    CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this,0,true);  
-}  
+#if 0
+void TestLayer1::registerWithTouchDispatcher()
+{
+	CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
+}
+#endif // 0
+
 
 
 bool TestLayer1::onTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
@@ -112,7 +121,8 @@ bool TestLayer1::onTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent
 	npcdata11.GetNPCchapter1();
 	npcdata11.role_player.nowpoint= pTouch->getLocation();
 	npcdata11.role_player.dir=rigth_down;
-	SpiritsPlayer taiyizhengren = SpiritsPlayer(npcdata11.role_player,0,false);
+//	SpiritsPlayer taiyizhengren = SpiritsPlayer(npcdata11.role_player,0,false);
+	SpiritsPlayer taiyizhengren(npcdata11.role_player, 0, false);
     return true;  
 }  
   
@@ -123,7 +133,8 @@ void TestLayer1::onTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent
 	npcdata11.GetNPCchapter1();
 	npcdata11.role_player.nowpoint= pTouch->getLocation();
 	npcdata11.role_player.dir=rigth_down;
-	SpiritsPlayer taiyizhengren = SpiritsPlayer(npcdata11.role_player,0,false);
+	//SpiritsPlayer taiyizhengren = SpiritsPlayer(npcdata11.role_player,0,false);
+	SpiritsPlayer taiyizhengren(npcdata11.role_player, 0, false);
     log("move");  
 }  
   
@@ -167,7 +178,7 @@ TestLayer2::TestLayer2(void)
     item1->setPosition(ccp(origin.x + x - item1->getContentSize().width/2 ,
         y-origin.y - item1->getContentSize().height/2));
     CCMenu *menu = CCMenu::create(item1, NULL);
-	menu->setPosition(CCPointZero);
+	menu->setPosition(Point::ZERO);
 	this->addChild(menu, 0);
 }
 

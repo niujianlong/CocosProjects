@@ -13,7 +13,9 @@ public:
 	void movebd(float times);
 
 	void nextCallback(CCObject* pSender);
+#if COCOS2DX_VERSION_2X
     virtual void registerWithTouchDispatcher(void);
+#endif
     virtual bool onTouchBegan(CCTouch *pTouch,CCEvent *pEvent);
     virtual void onTouchMoved(CCTouch *pTouch,CCEvent *pEvent);
     virtual void onTouchEnded(CCTouch *pTouch,CCEvent *pEvent);

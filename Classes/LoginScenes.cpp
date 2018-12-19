@@ -50,7 +50,15 @@ LoginScenes::LoginScenes(void)
 	this->makebd(0,0,99);
 	this->makebd(1,0,98);
 	this->schedule(schedule_selector(LoginScenes::movebd)); 
+#if COCOS2DX_VERSION_2X
 	setTouchEnabled(true);
+#endif
+	auto listener = EventListenerTouchOneByOne::create();
+	listener->onTouchBegan = CC_CALLBACK_2(LoginScenes::onTouchBegan, this);
+	listener->onTouchMoved = CC_CALLBACK_2(LoginScenes::onTouchMoved, this);
+	listener->onTouchCancelled = CC_CALLBACK_2(LoginScenes::onTouchCancelled, this);
+	listener->onTouchEnded = CC_CALLBACK_2(LoginScenes::onTouchEnded, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 }
 
 //新建
@@ -110,11 +118,12 @@ void LoginScenes::movebd(float times)
 LoginScenes::~LoginScenes(void)
 {
 }
-
+#if COCOS2DX_VERSION_2X
 void LoginScenes::registerWithTouchDispatcher()  
 {  
 	CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this,0,true);  
-}  
+}
+#endif
 
 
 bool LoginScenes::onTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  

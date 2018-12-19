@@ -4,7 +4,7 @@
 #include "PublicScenes/ToScene.h"
 #include "ImagePaths.h"
 //#include "Commen/GameDataXml.h"
-#include "Commen/HXmlParse.h"
+//#include "Commen/HXmlParse.h"
 #include "Commen/PublicCommen.h"
 extern int storyplayflag_caozuo;
 
@@ -42,7 +42,7 @@ bool GameMain::init()
 	//	origin.y + pCloseItem->getContentSize().height/2));
 
 	//CCMenu* pMenu = CCMenu::create(pCloseItem, NULL);
-	//pMenu->setPosition(CCPointZero);
+	//pMenu->setPosition(Point::ZERO);
 	//this->addChild(pMenu, 1);
 
 
@@ -135,7 +135,7 @@ bool GameMain::init()
 	CCMenuItemImage *item1 = CCMenuItemImage::create(p_toscene, p_toscene0, this, menu_selector(GameMain::GoToCcene) );
 	item1->setPosition(ccp(visibleSize.width/2+220, visibleSize.height/2+150));
 	CCMenu *menu = CCMenu::create(item1, NULL);
-	menu->setPosition( CCPointZero );
+	menu->setPosition( Point::ZERO );//把2.0的CCPointZero改成Point::ZERO
 	this->addChild(menu, 0);
 
 	//开启点击事件

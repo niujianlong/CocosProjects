@@ -38,7 +38,7 @@ SpiritsPlayer::SpiritsPlayer(MainRoledata roledata,int zOrder,bool zhujiaoflag)
 	label->setPosition(ccp(npc->getContentSize().width/2,npc->getContentSize().height+6));
 
 	CCLabelTTF* labelback = CCLabelTTF::create(roledata.spiritname->getCString(), "微软雅黑",12);
-	labelback->setColor(ccc3(0,0,0));//黑色
+	//labelback->setColor(ccc3(0,0,0));//黑色
 	labelback->setColor(Color3B::BLACK);//黑色
 	//labelback->setDirty(true);
 	labelback->setPosition(ccp(npc->getContentSize().width/2+1,npc->getContentSize().height+6-1));
