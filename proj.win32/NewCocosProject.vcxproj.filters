@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="win32">
+      <UniqueIdentifier>{84a8ebd7-7cf0-47f6-b75e-d441df67da40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameData">
+      <UniqueIdentifier>{240cb58c-b5f4-4c15-913e-583d952afea9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Comment">
+      <UniqueIdentifier>{bfc49811-9dc4-4b82-b5b0-1fad5c5822bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Spirits">
+      <UniqueIdentifier>{854bbf65-bf52-468a-948a-73b3dbde11f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Effects">
+      <UniqueIdentifier>{a583ff0d-8dec-495b-8b5c-aa3a862f0d0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\MapSpirits">
+      <UniqueIdentifier>{ea6b579c-d21d-4033-b624-c41c92a50636}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\StoryTips">
+      <UniqueIdentifier>{d22e2f86-48c7-4d0b-a9a8-4f264384eccb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameData\GetNPCData.cpp">
+      <Filter>src\GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Commen\FontChina.cpp">
+      <Filter>src\Comment</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Spirits\SpiritsPlayer.cpp">
+      <Filter>src\Spirits</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Commen\MakeNumbers.cpp">
+      <Filter>src\Comment</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Effects\EffectsCommen.cpp">
+      <Filter>src\Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Commen\PublicShowUI.cpp">
+      <Filter>src\Comment</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MapSpirits\Maps_Diyu.cpp">
+      <Filter>src\MapSpirits</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MapSpirits\MapsBase.cpp">
+      <Filter>src\MapSpirits</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Commen\FDPixelSprite.cpp">
+      <Filter>src\Comment</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StoryTips\TipsForStory.cpp">
+      <Filter>src\StoryTips</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Spirits\SpiritsMonster.cpp">
+      <Filter>src\Spirits</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HelloWorldScene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameData\GetNPCData.h">
+      <Filter>src\GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameData\MainRoledata.h">
+      <Filter>src\GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Commen_ActionToDo.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Commen_Direction.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Commen\FontChina.h">
+      <Filter>src\Comment</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Spirits\SpiritsPlayer.h">
+      <Filter>src\Spirits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Effects\EffectsCommen.h">
+      <Filter>src\Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ImagePaths.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Commen\MakeNumbers.h">
+      <Filter>src\Comment</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Commen\PublicShowUI.h">
+      <Filter>src\Comment</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MapSpirits\Maps_Diyu.h">
+      <Filter>src\MapSpirits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MapSpirits\MapsBase.h">
+      <Filter>src\MapSpirits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Commen\FDPixelSprite.h">
+      <Filter>src\Comment</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\StoryTips\TipsForStory.h">
+      <Filter>src\StoryTips</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\bianl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Spirits\SpiritsMonster.h">
+      <Filter>src\Spirits</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="game.rc">
+      <Filter>resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
