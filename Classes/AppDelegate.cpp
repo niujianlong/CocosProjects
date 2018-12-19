@@ -85,11 +85,16 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // run
     //director->runWithScene(scene);
 
-	Scene *pScene = GameMain::scene();
-
+	//Scene *pScene = GameMain::scene();
 	// run
-	director->runWithScene(pScene);
+	//director->runWithScene(pScene);
 
+	CCScene *scene2 = CCScene::create();
+
+	LoginScenes *layer2 =new LoginScenes();
+
+	scene2->addChild(layer2);
+	director->runWithScene(scene2);
     return true;
 }
 

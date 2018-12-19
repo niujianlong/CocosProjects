@@ -3,6 +3,7 @@
 #include "Effects/EffectsCommen.h"
 #include "PublicScenes/ToScene.h"
 #include "SelectRole.h"
+#include "GameMain.h"
 LoginScenes::LoginScenes(void)
 {
 	float x,y;
@@ -74,6 +75,11 @@ void LoginScenes::menuNewGame(CCObject* pSender)
 //开始
 void LoginScenes::menuStartGame(CCObject* pSender)
 {
+#if 0  // 暂时还不能直接进入GameMain scene 因为还没有进行第一次角色选择 执行到effort comment33行会死
+	Scene *pScene = GameMain::scene();
+	Director::getInstance()->replaceScene(pScene);
+#endif // 0  // 暂时还不能直接进入GameMain scene 因为还没有进行第一次角色选择 执行到effort comment33行会死
+
 }
 
 void LoginScenes::makebd(float num,int w,int tag)
