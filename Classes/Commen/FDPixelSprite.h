@@ -16,8 +16,8 @@ public:
     FDPixelSprite();
     virtual ~FDPixelSprite();
     
-    void onEnter();
-    void onExit();
+    virtual void onEnter();  //继承于Node的虚函数
+    virtual void onExit();  //继承于Node的虚函数
 	void setimg(CCString Url);
     
     FDPixelSprite* create(CCString Url);
@@ -26,10 +26,11 @@ public:
     CCRect atlasRect();
     bool isContainTouchLocation(CCTouch *pTouch);
     
-    bool onTouchBegan(CCString thismapurl,CCTouch *pTouch, CCEvent *pEvent);
-    void onTouchMoved(CCTouch *pTouch, CCEvent *pEvent);
-    void onTouchEnded(CCTouch *pTouch, CCEvent *pEvent);
-
+    bool onTouchBegan(CCTouch *pTouch, CCEvent *pEvent);//这里不是继承于Layer的虚函数，所以不加virtual
+    void onTouchMoved(CCTouch *pTouch, CCEvent *pEvent);//同上
+    void onTouchEnded(CCTouch *pTouch, CCEvent *pEvent);//同上
+private:
+	EventListenerTouchOneByOne* listener;
     //CC_SYNTHESIZE(const char*, m_pName,Name);
 };
 

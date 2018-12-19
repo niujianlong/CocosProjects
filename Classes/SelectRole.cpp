@@ -67,16 +67,20 @@ SelectRole::SelectRole(void)
 	this->addChild(rolebd_nan0,2,111);
 	this->addChild(rolebd_nv0,2,122);
 	
-	setTouchEnabled(true);
+	//deprecated
+	//setTouchEnabled(true); //这个就不需要的，因为它里面的操作跟下面的代码是重复的 这个API已经不赞成使用
 
 	/*注释掉130行的getTouchDispatcher
-	改为下面的3.X的触摸事件的注册方式*/
+	改为下面的3.X的触摸事件的注册方式
+	现在的疑问是这个listener到底是作为类的成员变量
+	还是作为一个局部变量呢？？
+	by njl*/
 	auto listener = EventListenerTouchOneByOne::create();
 	listener->onTouchBegan = CC_CALLBACK_2(SelectRole::onTouchBegan, this);
 	listener->onTouchMoved = CC_CALLBACK_2(SelectRole::onTouchMoved, this);
 	listener->onTouchCancelled = CC_CALLBACK_2(SelectRole::onTouchCancelled, this);
 	listener->onTouchEnded = CC_CALLBACK_2(SelectRole::onTouchEnded, this);
-	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 }
 
 

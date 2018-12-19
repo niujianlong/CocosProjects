@@ -1,5 +1,5 @@
-﻿#ifndef __HELLOWORLD_SCENE_H__
-#define __HELLOWORLD_SCENE_H__
+﻿#ifndef __GAMEMAIN_H__
+#define __GAMEMAIN_H__
 
 #include "cocos2d.h"
 
@@ -29,7 +29,9 @@ public:
 
 	//点击事件部分
 	void nextCallback(CCObject* pSender);
+#if COCOS2DX_VERSION_2X
     virtual void registerWithTouchDispatcher(void);
+#endif
     virtual bool onTouchBegan(CCTouch *pTouch,CCEvent *pEvent);
     virtual void onTouchMoved(CCTouch *pTouch,CCEvent *pEvent);
     virtual void onTouchEnded(CCTouch *pTouch,CCEvent *pEvent);
@@ -46,4 +48,4 @@ public:
 	void storyplaydataflag(float times);
 };
 
-#endif // __HELLOWORLD_SCENE_H__
+#endif // __GAMEMAIN_H__

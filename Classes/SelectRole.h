@@ -12,7 +12,7 @@ public:
 
 
     //virtual void registerWithTouchDispatcher(void);
-    virtual bool onTouchBegan(CCTouch *pTouch,CCEvent *pEvent);
+    virtual bool onTouchBegan(CCTouch *pTouch,CCEvent *pEvent);//这个类继承了Layer，所以这里的回调函数其实是virtual函数
     virtual void onTouchMoved(CCTouch *pTouch,CCEvent *pEvent);
     virtual void onTouchEnded(CCTouch *pTouch,CCEvent *pEvent);
     virtual void onTouchCancelled(CCTouch *pTouch,CCEvent *pEvent);

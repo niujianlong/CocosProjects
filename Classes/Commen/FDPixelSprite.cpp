@@ -39,6 +39,11 @@ void FDPixelSprite::onEnter()
 {
     CCSprite::onEnter();
     //CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
+	listener = EventListenerTouchOneByOne::create();
+	listener->onTouchBegan = CC_CALLBACK_2(FDPixelSprite::onTouchBegan, this);
+	listener->onTouchMoved = CC_CALLBACK_2(FDPixelSprite::onTouchMoved, this);
+	listener->onTouchEnded = CC_CALLBACK_2(FDPixelSprite::onTouchEnded, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 }
 
 
@@ -46,10 +51,11 @@ void FDPixelSprite::onExit()
 {
     CCSprite::onExit();
     //CCDirector::sharedDirector()->getTouchDispatcher()->removeDelegate(this);
+	_eventDispatcher->removeEventListener(listener);
 }
 
 
-bool FDPixelSprite::onTouchBegan(CCString thismapurl,cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
+bool FDPixelSprite::onTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
     if (this->isContainTouchLocation(pTouch) ) {
         ccColor4B c = {0, 0, 0, 0};

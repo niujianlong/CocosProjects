@@ -139,7 +139,15 @@ bool GameMain::init()
 	this->addChild(menu, 0);
 
 	//开启点击事件
+#if COCOS2DX_VERSION_2X
 	setTouchEnabled(true);
+#endif
+	auto listener = EventListenerTouchOneByOne::create();
+	listener->onTouchBegan = CC_CALLBACK_2(GameMain::onTouchBegan, this);
+	listener->onTouchMoved = CC_CALLBACK_2(GameMain::onTouchMoved, this);
+	listener->onTouchCancelled = CC_CALLBACK_2(GameMain::onTouchCancelled, this);
+	listener->onTouchEnded = CC_CALLBACK_2(GameMain::onTouchEnded, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 	return true;
 }
 
@@ -208,19 +216,19 @@ void GameMain::menuCloseCallback(CCObject* pSender)
 #endif
 }
 
-
+#if COCOS2DX_VERSION_2X
 void GameMain::registerWithTouchDispatcher()  
 {  
 	CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this,0,true);  
 }  
-
+#endif
 
 bool GameMain::onTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
 {  
 	//taiyizhengren2->updateNpcPoint(pTouch->getLocation());
 	//taiyizhengren2->moveTo(2,pTouch->getLocation());
 
-	if(mainmap_Touch->onTouchBegan("map_shengjie0.png",pTouch,pEvent)==true)
+	if(mainmap_Touch->onTouchBegan(pTouch,pEvent)==true)
 	{
 		mainmap->moveMapto(pTouch->getLocation(),mainmap_Touch);
 	}
