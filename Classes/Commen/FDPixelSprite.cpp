@@ -114,11 +114,11 @@ void FDPixelSprite::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEv
 }
 
 
-CCRect FDPixelSprite::atlasRect()
+Rect FDPixelSprite::atlasRect()
 {
     CCSize cSize = this->getContentSize();
     CCPoint point = this->getAnchorPointInPoints();
-    return CCRectMake( -point.x, -point.y, cSize.width,cSize.height);
+    return Rect( -point.x, -point.y, cSize.width,cSize.height);
 }
 
 
