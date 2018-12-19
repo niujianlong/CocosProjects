@@ -28,6 +28,15 @@
     <Filter Include="src\StoryTips">
       <UniqueIdentifier>{d22e2f86-48c7-4d0b-a9a8-4f264384eccb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\PublicScenes">
+      <UniqueIdentifier>{2ea3956c-e34e-4239-8de9-449f026fc86f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\PublicUI">
+      <UniqueIdentifier>{54083809-39bd-4ce1-8934-fbaea867b734}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Sqlite">
+      <UniqueIdentifier>{220c58bd-0fca-4309-9e3f-9c7dd74f3ea8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -74,6 +83,45 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Effects\SkillEffects.cpp">
       <Filter>src\Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Sqlite\sqlite3.c">
+      <Filter>src\Sqlite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\PublicUI\BaseUI.cpp">
+      <Filter>src\PublicUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\PublicScenes\Scene_Diyu.cpp">
+      <Filter>src\PublicScenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\PublicScenes\SceneTest.cpp">
+      <Filter>src\PublicScenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\PublicScenes\ToScene.cpp">
+      <Filter>src\PublicScenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Commen\GameDataXml.cpp">
+      <Filter>src\Comment</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Commen\HXmlParse.cpp">
+      <Filter>src\Comment</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Commen\PublicCommen.cpp">
+      <Filter>src\Comment</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Commen\TDInvFileUtils.cpp">
+      <Filter>src\Comment</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Spirits\SpiritMain.cpp">
+      <Filter>src\Spirits</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameMain.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LoginScenes.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SelectRole.cpp">
+      <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -136,6 +184,51 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Effects\SkillEffects.h">
       <Filter>src\Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Sqlite\sqlite3.h">
+      <Filter>src\Sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PublicUI\BaseUI.h">
+      <Filter>src\PublicUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PublicScenes\Scene_Diyu.h">
+      <Filter>src\PublicScenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PublicScenes\SceneTest.h">
+      <Filter>src\PublicScenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PublicScenes\ToScene.h">
+      <Filter>src\PublicScenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Commen\GameDataXml.h">
+      <Filter>src\Comment</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Commen\HXmlParse.h">
+      <Filter>src\Comment</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Commen\PublicCommen.h">
+      <Filter>src\Comment</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Commen\TDInvFileUtils.h">
+      <Filter>src\Comment</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Spirits\SpiritMain.h">
+      <Filter>src\Spirits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppMacros.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameMain.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LoginScenes.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SelectRole.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SkillPath.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
