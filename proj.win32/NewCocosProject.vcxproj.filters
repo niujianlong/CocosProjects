@@ -72,6 +72,9 @@
     <ClCompile Include="..\Classes\Spirits\SpiritsMonster.cpp">
       <Filter>src\Spirits</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Effects\SkillEffects.cpp">
+      <Filter>src\Effects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -130,6 +133,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Spirits\SpiritsMonster.h">
       <Filter>src\Spirits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Effects\SkillEffects.h">
+      <Filter>src\Effects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

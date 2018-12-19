@@ -155,6 +155,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\Commen\MakeNumbers.cpp" />
     <ClCompile Include="..\Classes\Commen\PublicShowUI.cpp" />
     <ClCompile Include="..\Classes\Effects\EffectsCommen.cpp" />
+    <ClCompile Include="..\Classes\Effects\SkillEffects.cpp" />
     <ClCompile Include="..\Classes\GameData\GetNPCData.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="..\Classes\MapSpirits\MapsBase.cpp" />
@@ -174,6 +175,7 @@ xcopy /Y /Q "$(COCOS_X_ROOT)\cocos2d-x-3.10\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\Commen_ActionToDo.h" />
     <ClInclude Include="..\Classes\Commen_Direction.h" />
     <ClInclude Include="..\Classes\Effects\EffectsCommen.h" />
+    <ClInclude Include="..\Classes\Effects\SkillEffects.h" />
     <ClInclude Include="..\Classes\GameData\GetNPCData.h" />
     <ClInclude Include="..\Classes\GameData\MainRoledata.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
