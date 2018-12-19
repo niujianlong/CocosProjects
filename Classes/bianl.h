@@ -1,7 +1,6 @@
 #ifndef _BIANL_
 #define _BIANL_
 #pragma once
-
 //第一章故事进度
 extern int storyplayflag_caozuo = 0;
 //第一章故事进度

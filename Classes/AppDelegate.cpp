@@ -1,7 +1,14 @@
 #include "AppDelegate.h"
+#include <vector>
+#include <string>
+#include "GameMain.h"
+#include "PublicScenes/Scene_Diyu.h"
+#include "LoginScenes.h"
+#include "AppMacros.h"
 #include "HelloWorldScene.h"
 
 USING_NS_CC;
+using namespace std;
 
 AppDelegate::AppDelegate() {
 
@@ -27,12 +34,13 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {
-        glview = GLViewImpl::createWithRect("NewCocosProject", Rect(0, 0, 960, 640));
+        glview = GLViewImpl::createWithRect("NewCocosProject", Rect(0, 0, 1186, 640));
         director->setOpenGLView(glview);
     }
 
-    director->getOpenGLView()->setDesignResolutionSize(960, 640, ResolutionPolicy::SHOW_ALL);
+    director->getOpenGLView()->setDesignResolutionSize(1186, 640, ResolutionPolicy::SHOW_ALL);
 
+ 	vector<string> searchPath;
     // turn on display FPS
     director->setDisplayStats(true);
 
