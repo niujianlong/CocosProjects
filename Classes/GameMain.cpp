@@ -215,19 +215,19 @@ void GameMain::registerWithTouchDispatcher()
 }  
 
 
-bool GameMain::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
+bool GameMain::onTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
 {  
 	//taiyizhengren2->updateNpcPoint(pTouch->getLocation());
 	//taiyizhengren2->moveTo(2,pTouch->getLocation());
 
-	if(mainmap_Touch->ccTouchBegan("map_shengjie0.png",pTouch,pEvent)==true)
+	if(mainmap_Touch->onTouchBegan("map_shengjie0.png",pTouch,pEvent)==true)
 	{
 		mainmap->moveMapto(pTouch->getLocation(),mainmap_Touch);
 	}
 	return true;  
 }  
 
-void GameMain::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
+void GameMain::onTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
 {  
 	//主角
 	//GetNPCData npcdata11 = GetNPCData();
@@ -237,10 +237,10 @@ void GameMain::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 	//SpiritsPlayer taiyizhengren = SpiritsPlayer(this,npcdata11.role_player,0);
 }  
 
-void GameMain::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
+void GameMain::onTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
 {  
 }  
 
-void GameMain::ccTouchCancelled(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
+void GameMain::onTouchCancelled(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
 {  
 }  

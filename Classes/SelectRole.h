@@ -11,11 +11,11 @@ public:
 	bool isTouchInside_nv(CCPoint thisPos,CCSprite* tack);
 
 
-    virtual void registerWithTouchDispatcher(void);
-    virtual bool ccTouchBegan(CCTouch *pTouch,CCEvent *pEvent);
-    virtual void ccTouchMoved(CCTouch *pTouch,CCEvent *pEvent);
-    virtual void ccTouchEnded(CCTouch *pTouch,CCEvent *pEvent);
-    virtual void ccTouchCancelled(CCTouch *pTouch,CCEvent *pEvent);
+    //virtual void registerWithTouchDispatcher(void);
+    virtual bool onTouchBegan(CCTouch *pTouch,CCEvent *pEvent);
+    virtual void onTouchMoved(CCTouch *pTouch,CCEvent *pEvent);
+    virtual void onTouchEnded(CCTouch *pTouch,CCEvent *pEvent);
+    virtual void onTouchCancelled(CCTouch *pTouch,CCEvent *pEvent);
 
     
    // //当用户启动虚拟键盘时的回调函数

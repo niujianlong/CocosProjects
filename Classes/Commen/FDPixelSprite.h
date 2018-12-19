@@ -26,9 +26,9 @@ public:
     CCRect atlasRect();
     bool isContainTouchLocation(CCTouch *pTouch);
     
-    bool ccTouchBegan(CCString thismapurl,CCTouch *pTouch, CCEvent *pEvent);
-    void ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent);
-    void ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent);
+    bool onTouchBegan(CCString thismapurl,CCTouch *pTouch, CCEvent *pEvent);
+    void onTouchMoved(CCTouch *pTouch, CCEvent *pEvent);
+    void onTouchEnded(CCTouch *pTouch, CCEvent *pEvent);
 
     //CC_SYNTHESIZE(const char*, m_pName,Name);
 };

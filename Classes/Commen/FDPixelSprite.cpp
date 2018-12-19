@@ -49,7 +49,7 @@ void FDPixelSprite::onExit()
 }
 
 
-bool FDPixelSprite::ccTouchBegan(CCString thismapurl,cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
+bool FDPixelSprite::onTouchBegan(CCString thismapurl,cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
     if (this->isContainTouchLocation(pTouch) ) {
         ccColor4B c = {0, 0, 0, 0};
@@ -100,7 +100,7 @@ bool FDPixelSprite::ccTouchBegan(CCString thismapurl,cocos2d::CCTouch *pTouch, c
 }
 
 
-void FDPixelSprite::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
+void FDPixelSprite::onTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
     //CCPoint pos = this->getPosition();
     //CCPoint sub = pTouch->getDelta();
@@ -108,9 +108,9 @@ void FDPixelSprite::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEv
 }
 
 
-void FDPixelSprite::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
+void FDPixelSprite::onTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
-    //log("firedragonpzy:ccTouchEnded");
+    //log("firedragonpzy:onTouchEnded");
 }
 
 

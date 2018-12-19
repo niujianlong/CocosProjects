@@ -117,20 +117,20 @@ void LoginScenes::registerWithTouchDispatcher()
 }  
 
 
-bool LoginScenes::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
+bool LoginScenes::onTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
 {  
 
 	return true;  
 }  
 
-void LoginScenes::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
+void LoginScenes::onTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
 {  
 }  
 
-void LoginScenes::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
+void LoginScenes::onTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
 {  
 }  
 
-void LoginScenes::ccTouchCancelled(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
+void LoginScenes::onTouchCancelled(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
 {  
 }  

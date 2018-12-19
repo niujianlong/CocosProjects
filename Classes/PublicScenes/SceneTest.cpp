@@ -105,7 +105,7 @@ void TestLayer1::registerWithTouchDispatcher()
 }  
 
 
-bool TestLayer1::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
+bool TestLayer1::onTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
 {  
 	//主角
 	GetNPCData npcdata11 = GetNPCData();
@@ -116,7 +116,7 @@ bool TestLayer1::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent
     return true;  
 }  
   
-void TestLayer1::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
+void TestLayer1::onTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
 {  
 	//主角
 	GetNPCData npcdata11 = GetNPCData();
@@ -127,11 +127,11 @@ void TestLayer1::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent
     log("move");  
 }  
   
-void TestLayer1::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
+void TestLayer1::onTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
 {  
 }  
   
-void TestLayer1::ccTouchCancelled(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
+void TestLayer1::onTouchCancelled(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
 {  
 }  
 

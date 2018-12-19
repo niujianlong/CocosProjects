@@ -29,9 +29,9 @@ void Scene_Diyu::registerWithTouchDispatcher()
 }  
 
 
-bool Scene_Diyu::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
+bool Scene_Diyu::onTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
 {  
-	if(mainmap_Touch->ccTouchBegan("map_diyu_naihe0.png",pTouch,pEvent)==true&&mainmap->touch_select(pTouch->getLocation())==false)
+	if(mainmap_Touch->onTouchBegan("map_diyu_naihe0.png",pTouch,pEvent)==true&&mainmap->touch_select(pTouch->getLocation())==false)
 	{
 		mainmap->moveMapto(pTouch->getLocation(),mainmap_Touch);
 	}
@@ -40,15 +40,15 @@ bool Scene_Diyu::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent
     return true;  
 }  
   
-void Scene_Diyu::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
+void Scene_Diyu::onTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
 {  
 }  
   
-void Scene_Diyu::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
+void Scene_Diyu::onTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
 {  
 }  
   
-void Scene_Diyu::ccTouchCancelled(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
+void Scene_Diyu::onTouchCancelled(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
 {  
 }  
 

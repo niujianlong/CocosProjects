@@ -68,6 +68,15 @@ SelectRole::SelectRole(void)
 	this->addChild(rolebd_nv0,2,122);
 	
 	setTouchEnabled(true);
+
+	/*注释掉130行的getTouchDispatcher
+	改为下面的3.X的触摸事件的注册方式*/
+	auto listener = EventListenerTouchOneByOne::create();
+	listener->onTouchBegan = CC_CALLBACK_2(SelectRole::onTouchBegan, this);
+	listener->onTouchMoved = CC_CALLBACK_2(SelectRole::onTouchMoved, this);
+	listener->onTouchCancelled = CC_CALLBACK_2(SelectRole::onTouchCancelled, this);
+	listener->onTouchEnded = CC_CALLBACK_2(SelectRole::onTouchEnded, this);
+	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
 }
 
 
@@ -119,27 +128,27 @@ SelectRole::~SelectRole(void)
 
 }
 
-void SelectRole::registerWithTouchDispatcher()  
-{  
-	CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this,0,true);  
-}  
+//void SelectRole::registerWithTouchDispatcher()  
+//{  
+	//CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this,0,true);  
+//}  
 
 
-bool SelectRole::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
+bool SelectRole::onTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
 {  
 	isTouchInside_nan(pTouch->getLocation(),(CCSprite*)this->getChildByTag(11));
 	isTouchInside_nv(pTouch->getLocation(),(CCSprite*)this->getChildByTag(12));
 	return true;  
 }  
 
-void SelectRole::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
+void SelectRole::onTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
 {  
 }  
 
-void SelectRole::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
+void SelectRole::onTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
 {  
 }  
 
-void SelectRole::ccTouchCancelled(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
+void SelectRole::onTouchCancelled(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)  
 {  
 }  
